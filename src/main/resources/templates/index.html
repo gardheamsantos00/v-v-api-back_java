@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html ng-app="appCliente">
+<head>
+	<meta charset="UTF-8"/>
+    <title>API PESSOA</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+	<script src="assets/js/controllers.js"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+ -->
+ 	<script src="./js/app.js"></script>
+	<script src="./js/controller/pessoa-controller.js"></script>
+</head>
+<body ng-controller="pessoaController">
+
+<!-- 	<div>
+	Nome: <input type="text" ng-model="pessoa.nome"/>
+ 	Função: <input type="text" ng-model="pessoa.funcao"/>
+ 	<input type="button" value="salvar" ng-click="salvarPessoa()"/>
+ 	<input type="button" value="cancelar" ng-click="cancelarEdit()"/>
+ 
+	</div> -->
+	
+	<br></br>
+	<br></br>
+	BUSCAR: <input type="text" ng-model="buscar" placeholder="buscar por .."/>
+	<br></br>
+	<br></br>
+	<table class="table">
+	<tr>
+		<th>Nome</th>
+		<th>Função</th>
+		<th>Excluir</th>
+		<th>Alterar</th>
+	</tr>
+	<tr ng-repeat= "pessoa in pessoas | filter: buscar ">
+		<td>{{ pessoa.nome }}</td>
+		<td>{{ pessoa.funcao }}</td>
+		<td><input type="button" value="Excluir" 
+		class="btn btn-primary" ng-click="excluirPessoa(pessoa)"/></td>
+		<td><input type="button" value="Alterar" 
+		class="btn btn-primary" ng-click="alterarPessoa(pessoa)"/></td>
+	</tr>
+</table>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+ 	<div style="text-align:center;">
+ 		<form class="form-inline" name="formItem">
+		  Nome:<input type="text" ng-model="pessoa.nome"/>
+		  Função:<select ng-model="pessoa.funcao" ng-options="x for x in funcaopessoa"></select>			
+		  <button ng-click="salvarPessoa()">Salvar</button>
+		  <button ng-click="cancelarEdit()">Cancelar</button>
+		</form>
+ 	</div>
+ 	
+  	<br></br>
+  	<br></br>
+  	<br></br>
+  	<br></br>
+  	<br></br>
+  	<br></br>
+  	
+<!-- 	 <div >
+	 	<table style="display:inline-block">
+		 	<thead >
+		 		<tr>
+		 			<th>Nome</th>
+		 			<th>Função</th>
+		 			<th>Excluir</th>
+		 			<th>Alterar</th>
+		 		</tr>
+		 		
+		 	</thead>
+		 	<tbody>
+		 		<tr ng-repeat= "pessoa in pessoas">
+		 			<td>{{ pessoa.nome }}</td>
+		 			<td>{{ pessoa.funcao }}</td>
+		 			<td> <input type="button" value="x" ng-click="excluirPessoa(pessoa)"/></td>
+		 			<td> <input type="button" value="Alterar" ng-click="alterarPessoa(pessoa)"/></td>
+		 		</tr>
+		 	</tbody>
+	 	
+	 </table>
+	 		
+	 </div> -->
+	 	
+	
+</body>
+</html>
